@@ -17,49 +17,58 @@
 	<div class="menu" onClick="NAV();"><span></span></div>
 	<nav class="closed hidden opaque">
 		<ul>
-			<li><p onClick="newPage('#ABT')">About</p></li>
-			<li><p onClick="newPage('#CAK')">Appliance Site</p></li>
-			<li><p onClick="newPage('#KRT')">"Karrot" Site</p></li>
-			<li><p onClick="newPage('#AOP')">Party Site</p></li>
-			<li><p onClick="newPage('#ABVFC')">Alum Bank V. F. C.</p></li>
+			<li><p onClick="newPage('#ABT', event)" class="CurPage">About Me</p></li>
+			<li><p onClick="console.log(`newPage('#PER', event)`)">Personal</p></li>
+			<li><p onClick="console.log(`newPage('#PRO', event)`)">Skills</p></li>
+			<li><p onClick="newPage('#CAK', event)">Appliance Site</p></li>
+			<li><p onClick="newPage('#KRT', event)">"Karrot" Site</p></li>
+			<li><p onClick="newPage('#AOP', event)">Party Site</p></li>
+			<li><p onClick="newPage('#ABVFC', event)">Alum Bank V. F. C.</p></li>
 			<li><p><a href="/info/SheldonDavis-resume.pdf" target="blank_">Resume</a></p></li>
 		</ul>
 	</nav>
+	
 	<div id="ABT" class="Page active show">
 		<div class="PageContent">
-			<h1>Welcome</h1>
+			<h1>Hello & Welcome</h1>
+	
+			<h3>My name is Sheldon Davis and I am a Father, Husband, and FullStack Developer.</h3>
 
-			<p>Rewrite this copy. It's tacky and lame.</p>
+			<p>In 2015, I graduated from Pittsburgh Technical College (formerly Pittsburgh Technical Institute) with an Associate of Science Degree in Multimedia Technologies with a concentration in Web and Interactive Design. While there, I learned and coded primarily with HTML5, CSS3, JavaScript, PHP and MySQL. I also was provided with, and taught extensively, the use of the Adobe Creative Suite.
+
+			<p>Immediately following graduation, I started my career working for the design firm PVA Interactive where I focused on developing unique, creative, and responsive websites for clientele. Here, I expanded my understanding of both front and backend development, primarily within the WordPress Content management system, creating custom WordPress themes and plug-in customizations. At this time, I also pick up a fluent knowledge of the jQuery library and the implementation, customization, and use of jQuery plug-ins.</p>
+				
+			<p>Within the year I would meet my, now, wife and be married two years after that. It is here where I decide to make a change in my career.</p>
+
+			<p>I obtained a position within CEC Inc., working on an internal company intranet, of sorts. With this, I would learn and begin to develop with new, to me, coding languages (Visual Basic, ASP and ASP.NET, some minor use of C#) and software similar to what I was familiar with but had never worked with before (SQL Server Management Studio and Visual Studio). </p>			
+
+			<p>Roughly two years from there, my wife and I welcome our son into the world and purchase our home. Which leads us to the present, where I am still researching the latest tech and continuing to hone my skills within the industry. My latest intrigue, the MERN (MongoDB, ExpressJS, ReactJS, and NodeJS) code stack. Since starting my career journey, I have always had an interest in developing both web and mobile applications. The more I learn of the possibilities of using the MERN stack and the potential of React Native, the more my brain is flooded with possible projects that I can't wait to begin.</p>
+
+			<p>I am a Father, Husband, and FullStack Developer.</p>
+
+			<!--<p>Rewrite this copy. It's tacky and lame.</p>
 
 			<p>My name is Sheldon Davis and I am a developer who codes, designs, and creates fully functioning and responsive websites. I have received my Associate in Science Degree in Multimedia Technologies with a concentration in Web and Interactive Design at Pittsburgh Technical College (Formerly Pittsburgh Technical Institute). Please take some time to review my portfolio of work on this site.</p>
 			<p>The projects show my abilities with both front and back end development. My areas of concentration include the languages HTML5, CSS3, JavaScript, PHP, and MySQL, and I have extensive training in the Adobe Creative Suite. I also have a fluent knowledge of the JQuery libraries and the implementation, customization, and use of JQuery plug-ins. I perform well working alone or in groups, and have experience being in lead positions while making difficult design and coding decisions.</p>
-			<p>After working under a Creative Director and design team, I am very capable of transforming a predetermined design layout into a fully functioning website. I feel that the skills I have obtained during my time at Pittsburgh Technical College and the skills I have honed in the field have elevated me a level above the average web designer or developer.</p>
+			<p>After working under a Creative Director and design team, I am very capable of transforming a predetermined design layout into a fully functioning website. I feel that the skills I have obtained during my time at Pittsburgh Technical College and the skills I have honed in the field have elevated me a level above the average web designer or developer.</p> -->
 			</div>
 	</div>
-	<div id="ABVFC" class="Page">
-			<div class="PageContent">
-				<h1>Alum Bank Fire Company</h1>
-				<p class="ProjectLogo"><img src="http://alumbankvfc.org/wp-content/uploads/AlumBankBadgeTrace.png"/></p>
-				<p><b>Talents Showcased:</b> The Alum Bank Volunteer Fire Company website showcases my abilities to manipulate a Wordpress Backend system and customized theme, based off of a core Wordpress theme.</p>
-				<p><b>Objective:</b> Allow Client to edit content within their website after production finished. Allow users to follow the activities that the Fire Company participates in and read into other information about the Fire Company.</p>
-				<p><b>Target Audience:</b> Young adult to adult consumers.</p>
-				<p class="beforeBullets">Highlights:</p>
-				<ul class="TheBullets">
-					<li><p>Fully mobile and customized theme, based on the client's requests and needs.</p></li>
-					<li><p>Theme Structure manipulation of Wordpress core and Wordpress plug-in use.</p></li>
-					<li><p>Set-up and connection of website forms to email a member of the Fire Company for user contact.</p></li>
-				</ul>
-				
-			<div class="ViewRow">
-				<div class="ViewBTN">
-					<p><a href="http://alumbankvfc.org/" target="blank_">View Site</a></p>
-				</div>
-			</div>
+	<div id="PRO" class="Page">
+		<div class="PageContent">
+			<h1>Professional Info</h1>
 		</div>
 	</div>
+	
+	<div id="PER" class="Page">
+		<div class="PageContent">
+			<h1>Personal Info</h1>
+			<p></p>
+		</div>
+	</div>
+
 	<div id="CAK" class="Page">
 			<div class="PageContent">
-				<h1>Cook’s Appliance Kitchen Website</h1>
+				<h1>Cook's Appliance Kitchen Website</h1>
 				<p class="ProjectLogo"><img src="/content/SSS_finalsite/img/logo.png"/></p>
 				<p><b>Talents Showcased:</b> This project showcases my skills with Server-side development, my abilities with Interactivity, and Good design element usage.</p>
 				<p><b>Objective:</b> Allow users to view a ficticious company's review of kitchen appliances.</p>
@@ -139,6 +148,27 @@
 		</div>
 	</div>
 
+	<div id="ABVFC" class="Page">
+			<div class="PageContent">
+				<h1>Alum Bank Fire Company</h1>
+				<p class="ProjectLogo"><img src="http://alumbankvfc.org/wp-content/uploads/AlumBankBadgeTrace.png"/></p>
+				<p><b>Talents Showcased:</b> The Alum Bank Volunteer Fire Company website showcases my abilities to manipulate a Wordpress Backend system and customized theme, based off of a core Wordpress theme.</p>
+				<p><b>Objective:</b> Allow Client to edit content within their website after production finished. Allow users to follow the activities that the Fire Company participates in and read into other information about the Fire Company.</p>
+				<p><b>Target Audience:</b> Young adult to adult consumers.</p>
+				<p class="beforeBullets">Highlights:</p>
+				<ul class="TheBullets">
+					<li><p>Fully mobile and customized theme, based on the client's requests and needs.</p></li>
+					<li><p>Theme Structure manipulation of Wordpress core and Wordpress plug-in use.</p></li>
+					<li><p>Set-up and connection of website forms to email a member of the Fire Company for user contact.</p></li>
+				</ul>
+				
+			<div class="ViewRow">
+				<div class="ViewBTN">
+					<p><a href="http://alumbankvfc.org/" target="blank_">View Site</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="ColorToggle" onClick="colorToggle();">
 		<div class="CT-table"><div class="CT-tableCell">
