@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<distributors>
+	<store id="1256">
+		<name>Cook's Appliance Kitchen</name>
+		<phone>412-555-555</phone>
+		<address>1111 Cook's Rd</address>
+		<city>Pittsburgh</city>
+		<zipcode>15071</zipcode>
+			
+	</store>
+	<store id="5240">
+		<name>Cook's Appliance Kitchen</name>
+		<phone>871-444-777</phone>
+		<address>1523 Kitchen Dr</address>
+		<city>Chicago</city>
+		<zipcode>45454</zipcode>
+	</store>
+	<store id="5987">
+	<name>Cook's Appliance Kitchen</name>
+		<phone>987-212-1212</phone>
+		<address>412 Road Ln</address>
+		<city>New York</city>
+		<zipcode>12121</zipcode>
+	</store>
+	<store id="3255">
+	<name>Cook's Appliance Kitchen</name>
+		<phone>555-123-2222</phone>
+		<address>10 Homestead Ave</address>
+		<city>Miami</city>
+		<zipcode>88888</zipcode>
+	</store>
+	<store id="1289">
+	<name>Cook's Appliance Kitchen</name>
+		<phone>123-456-7890</phone>
+		<address>129 Cinima Rd</address>
+		<city>Seattle</city>
+		<zipcode>55552</zipcode>
+	</store>
+
+
+</distributors>

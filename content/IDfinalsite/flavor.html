@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<title>Anyone's Party | Dessert Flavor</title>
+</head>
+
+<body>
+
+<header class="clearfix">
+<div class="logo">
+	<a href="page1.html"><img class="logo" src="img/logofinal.png" alt="Logo"></a>
+</div>	
+    <nav>
+		<ul class="clearfix">
+	    <li><a href="catagory.html">Dessert Category</a></li>
+	    <li><a href="flavor.html">Flavor</a></li>
+	    <li><a href="icing.html">Icing</a></li>
+	    <li><a href="message.html">Custom Message</a></li>
+		</ul>
+	</nav>
+</header>
+
+<main>
+<div class="head">
+	<h2>Dessert Flavor</h2>
+	<p>Choose what flavor of dessert you would like to have.</p>
+  </div>  
+
+  <div class="block">
+    <img id="chocolate" src="img/chocolate.png" alt="chocolate">
+    	<h3><strong>Chocolate</strong> - $2</h3>
+    </div>
+    
+    <div class="block">
+    <img id="vanilla" src="img/vanilla.png" alt="vanilla">
+    	<h3><strong>Vanilla</strong> - $1.50</h3>
+     </div>
+
+     
+	<div class="forms clearfix">   
+		<form action="catagory.html" method="post">
+			<input type="submit" value="Prev.">
+		</form>
+    
+    	<form action="icing.html" method="post">
+			<input type="submit" value="Next">
+		</form>
+    </div>
+
+
+</main>
+<aside class="cart clearfix">
+    <h2>Cart</h2>
+    
+    <div class="fix">
+	    <h4>Catagory</h4>
+	    <p id="cat_name">-</p>
+	    <p id="cat_price">$</p>
+	    <h5 id="cat_clear">Clear</h5>
+    </div>
+ 
+ 	<div class="fix">
+	    <h4>Flavor</h4>
+	    <p id="flavor_name">-</p>
+	    <p id="flavor_price">$</p>
+	    <h5 id="flavor_clear">Clear</h5>
+    </div>
+
+    <div class="fix">
+	    <h4>Icing</h4>
+	    <p id="icing_name">-</p>
+	    <p id="icing_price">$</p>
+		<h5 id="icing_clear">Clear</h5>
+	</div>
+
+    <div class="fix">
+	    <h4>Message</h4>
+	    <p id="message">-</p>
+	    <p id="message_price">$</p>
+	   	<h5 id="message_clear">Clear</h5>
+	</div>
+    
+    <p>Total: $<div id="cart_total">0</div></p>
+</aside>
+
+<footer class="clearfix">
+
+<h6 class="a1">&copy; SheldonDavis</h6>
+<h6 class="a2"><a href="http://www.sheldondavis.net">Back to Sheldon Davis Portfolio</a><h6>
+
+</footer>
+
+<script src="js/java.js"></script>
+<script>
+	var bstyle1="none";
+	var bstyle2="none";
+	var borders="2px solid #222";
+	
+	document.getElementById("chocolate").onclick = function(){
+		border1();
+		chosechoco();
+	}
+	
+	document.getElementById("vanilla").onclick = function(a){
+		border2();
+		chosevan();
+		
+	}
+	
+
+function border1(){
+			if(bstyle1=="none"){
+				clear();
+				document.getElementById("chocolate").style.border=borders;
+				bstyle1 = "borders";
+			}else if(bstyle1=="borders"){				
+				document.getElementById("chocolate").style.border="#7676B2 solid 2px";
+				bstyle1 = "none";
+			}
+}
+function border2(){
+	
+			if(bstyle2=="none"){
+				clear();
+				document.getElementById("vanilla").style.border=borders;
+				bstyle2 = "borders";
+			}else if(bstyle2=="borders"){
+				
+				document.getElementById("vanilla").style.border="#7676B2 solid 2px";
+				bstyle2 = "none";
+			}
+}
+
+function clear(){
+	 bstyle1="none";
+	 bstyle2="none";	
+	 document.getElementById("chocolate").style.border="#7676B2 solid 2px";
+	document.getElementById("vanilla").style.border="#7676B2 solid 2px";
+}
+
+	document.getElementById('cat_clear').onclick = function(){ del(this); }
+	document.getElementById('flavor_clear').onclick = function(){ del(this); }
+	document.getElementById('icing_clear').onclick = function(){ del(this); }
+	document.getElementById('message_clear').onclick = function(){ del(this); }
+
+</script>
+</body>
+</html>

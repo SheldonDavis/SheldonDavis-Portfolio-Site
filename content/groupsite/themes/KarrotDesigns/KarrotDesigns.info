@@ -1,0 +1,7 @@
+name = Sheldon Davis
+description = Karrot Designs' comapany website theme
+package = core
+version = VERSION
+core = 7.x
+stylesheets[all][] = css/styles.css
+screenshot = screenshot.png

@@ -1,0 +1,402 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*fonts*/
+@import url("https://fonts.googleapis.com/css?family=Dosis|Fjord+One");
+/*
+font-family: 'Fjord One', serif;
+font-family: 'Dosis', sans-serif;
+*/
+
+/*RESET*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/*end reset*/
+
+/*begin main styles*/
+body {
+  font-family: "Dosis", Arial, sans-serif;
+  background-color: #18090b;
+  color: #eee;
+  transition: background-color 0.25s ease-out;
+}
+h1, p {
+  font-family: "Fjord One", serif;
+}
+body.light {
+  background-color: #eee;
+  color: #18090b;
+}
+
+/*lightbulb styles*/
+.ColorToggle {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  height: 40px;
+  width: 40px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  -moz-border: 2px solid #eee;
+  -webkit-border: 2px solid #eee;
+  border: 3px solid #eee;
+  background-color: #18090b;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease-out;
+}
+.light .ColorToggle {
+  background-color: #eee;
+
+  -moz-border: 2px solid #18090b;
+  -webkit-border: 2px solid #18090b;
+  border: 3px solid #18090b;
+}
+.ColorToggle:hover {
+  background-color: #eee;
+}
+.light .ColorToggle:hover {
+  background-color: #18090b;
+}
+.ColorToggle .CT-table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.ColorToggle .CT-tableCell {
+  display: table-cell;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.ColorToggle i {
+  font-size: 25px;
+  color: #eee;
+  transition: color 0.25s ease-out;
+}
+.ColorToggle:hover i {
+  color: #18090b;
+}
+.light .ColorToggle i {
+  font-size: 25px;
+  color: #18090b;
+  transition: color 0.25s ease-out;
+}
+.light .ColorToggle:hover i {
+  color: #eee;
+}
+
+/*Start nav styles*/
+nav.hidden {
+  display: none;
+}
+nav.opaque {
+  opacity: 0;
+}
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(24, 9, 11, 0.35);
+  padding: 0;
+  z-index: 5;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  backdrop-filter: blur(7px);
+}
+.light nav {
+  background-color: rgba(238, 238, 238, 0.35);
+}
+nav ul {
+  margin: 75px 0 0 50px;
+  position: relative;
+  left: 0;
+  opacity: 1;
+  transition: left 0.25s ease-out, opacity 0.25s ease-out;
+}
+nav ul li {
+  display: block;
+}
+nav ul li p {
+  display: block;
+  color: #eee;
+  font-size: 1.33em;
+  line-height: 1.7em;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.light nav ul li p {
+  color: #18090b;
+}
+nav ul li p a {
+  color: #eee;
+  text-decoration: none;
+  line-height: 115%;
+  display: block;
+}
+.light nav ul li p a {
+  color: #18090b;
+}
+.menu {
+  position: fixed;
+  height: 40px;
+  width: 40px;
+  top: 15px;
+  left: 15px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  -moz-border: 2px solid #eee;
+  -webkit-border: 2px solid #eee;
+  border: 3px solid #eee;
+  background-color: #18090b;
+  cursor: pointer;
+  z-index: 10;
+  transition: all ease-out 0.25s;
+}
+.light .menu {
+  -moz-border: 2px solid #18090b;
+  -webkit-border: 2px solid #18090b;
+  border: 3px solid #18090b;
+  background-color: #eee;
+}
+.menu:hover {
+  background-color: #eee;
+}
+.light .menu:hover {
+  background-color: #18090b;
+}
+.menu span {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.menu span:before,
+.menu span:after {
+  width: 69%;
+  content: "";
+  height: 3px;
+  border-radius: 33px;
+  background-color: #eee;
+  display: block;
+  position: relative;
+  transition: all ease-out 0.25s;
+}
+.light .menu span:before,
+.light .menu span:after {
+  background-color: #18090b;
+}
+.menu span:before {
+  transform: rotate(0deg);
+  top: 12px;
+  left: 7px;
+  width: 60%;
+}
+.menu.close span:before {
+  transform: rotate(45deg);
+  top: 16px;
+  left: 16%;
+  width: 69%;
+}
+.menu:hover span:before {
+  background-color: #18090b;
+}
+.light .menu:hover span:before {
+  background-color: #eee;
+}
+.menu span:after {
+  transform: rotate(0deg);
+  top: 17px;
+  left: 7px;
+  width: 40%;
+}
+.menu.close span:after {
+  transform: rotate(-45deg);
+  top: 13px;
+  left: 16%;
+  width: 69%;
+}
+.menu:hover span:after {
+  background-color: #18090b;
+}
+.light .menu:hover span:after {
+  background-color: #eee;
+}
+nav.closed ul {
+  left: -15px;
+  opacity: 0;
+}
+
+/*start page styles*/
+.Page {
+  opacity: 0;
+  display: none;
+  top: 0;
+  left: 0px;
+  min-height: 100vh;
+  justify-content: end;
+  align-items: center;
+  overflow-y: auto;
+  transition: opacity ease-out 0.3s, display ease-out 0.3s;
+}
+.Page.active {
+  display: flex;
+}
+.Page.active.show {
+  opacity: 1;
+}
+.Page.active.hide {
+  opacity: 0;
+}
+.PageContent {
+  max-width: 1000px;
+  margin: 75px 1.25em 55px;
+}
+.PageContent h1 {
+  font-size: 1.75em;
+  line-height: 1.5em;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.PageContent p {
+  font-size: 1.25em;
+  line-height: 1.5em;
+  padding-bottom: 1.5em;
+  color: #eee;
+  transition: color ease-out 0.25s;
+}
+.light .PageContent p {
+  color: #18090b;
+}
+.PageContent p b {
+  font-weight: 900;
+  letter-spacing: 1.25px;
+  font-size: 1.05em;
+}
+.PageContent p.beforeBullets {
+  padding-bottom: 5px;
+  font-weight: 900;
+  letter-spacing: 1.25px;
+}
+ul.TheBullets {
+  list-style-type: disc;
+  margin-left: 20px;
+  list-style-position: outside;
+}
+.PageContent li p {
+  padding-bottom: 5px;
+}
+.ViewRow {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9em 1.3em;
+}
+.ViewBTN p {
+  padding-bottom: 0;
+  font-size: 1.25em;
+}
+.ViewBTN p a {
+  text-decoration: none;
+  color: #eee;
+  padding: 7px 17px;
+  display: block;
+  border: 2px solid #eee;
+  transition: all ease-out 0.133s;
+}
+.light .ViewBTN p a {
+  color: #18090b;
+  border: 2px solid #18090b;
+}
+.ViewBTN p a:hover {
+  background-color: #eee;
+  color: #18090b;
+  border: 2px solid transparent;
+}
+.light .ViewBTN p a:hover {
+  background-color: #18090b;
+  color: #eee;
+  border: 2px solid transparent;
+}
+.ProjectLogo img {
+  display: block;
+  max-width: 100%;
+  max-height: 200px;
+  margin: 25px 0;
+}
+
+/*BEGIN MEDIA QUERIES*/
+
+@media (min-width: 768px) {
+  .PageContent h1 {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1280px) {
+  nav.opaque {
+    opacity: 1;
+  }
+  nav.hidden {
+    display: flex;
+  }
+  nav {
+    backdrop-filter: none;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    position: relative;
+    transition:all 0.5s ease-out, background-color 0s ease-out;
+  }
+  .light nav {
+        background-color: rgba(238, 238, 238, 0.0);
+    }
+  nav.closed ul {
+    left: 0;
+    opacity: 1;
+  }
+  nav ul {
+    border-right: 2px solid #eee;
+    padding: 2.3em 1.11em;
+    margin: 50px 0 0 0.5em;
+  }
+    .light nav ul{border-right: 2px solid #18090b;}
+  .menu {
+    display: none;
+  }
+  body {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .PageContent {
+    margin: 50px 1.11em 0;
+  }
+}
+
+@media (min-height: 400px) and (min-width: 1280px) {
+  body {
+    align-items: center;
+  }
+  .PageContent {
+    margin-top: 75px;
+  }
+}
+
+
+@media (min-width: 1440px) {
+    .PageContent {
+        margin: 50px 3.5em 0;
+    }
+      
+    nav ul {
+        padding: 2.3em 3.5em;
+    }
+}

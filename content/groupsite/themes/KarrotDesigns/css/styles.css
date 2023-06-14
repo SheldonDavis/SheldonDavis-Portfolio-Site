@@ -1,0 +1,293 @@
+/*Colors
+
+Green: #60DE31;
+
+Orange: #D78620;
+
+Purple: #770287;
+
+*/
+
+/*Font!
+font-family: 'Arvo', serif;
+font-family: 'Lora', serif;
+*/
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+@import url(http://fonts.googleapis.com/css?family=Lora);
+
+/*remove user login*/
+#block-user-login{width:20%;display:none;}
+div.region-sidebar-first{
+	font-size:1em;
+	width:75%;
+	margin:0 auto;
+}
+hr{
+	width:100%;
+	height:2px;
+	background-color:#770287;
+}
+div.region-sidebar-first p{
+	font-size:1em;
+
+}
+
+body{
+	background-color:#333;
+	margin:0;
+}
+main{
+	background-color:#D78620;
+	margin:0 auto;
+	padding:2.5%;
+	display: block;
+
+
+}
+header{
+	margin:0 auto;
+	width:97%;
+	background-color:#DCF7D2;
+	padding:.25em;
+	border-radius: 10px;
+}
+section{
+	margin:0 auto;	
+	width:100%;
+	border-radius: 10px;
+}
+.section{
+	margin:0 auto;
+	width:97%;
+	background-color:#DCF7D2;
+	padding:.25em;
+	border-radius: 10px;
+}
+section.section{
+	margin-top:1em;
+	margin-bottom:1em;
+	padding-top:0;
+}
+
+#main-menu{	
+	width:95%;
+	margin: 0 auto;
+	display:block;
+	padding:.5em;
+	text-align:center;
+
+}
+li{
+	font-size:1.05em;	
+	text-align:center;
+}
+li a{
+	font-size:2em;
+}
+a{
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#FFAB5B;
+	text-decoration:none;
+	margin:0 auto;
+	text-align:center;
+	
+}
+a:linked{
+	color:#007300;
+}
+a:visited{
+	color:#E59400;
+}
+a:hover{
+	color: #60DE31;
+}
+a:active{
+	text-decoration:underline;
+	color:#770287;
+}
+li a:active{
+	text-decoration:underline;
+	color:#770287;
+}
+
+a h1{
+	color:#FFAB5B;
+	font-size:3.5em;
+	display:none;
+
+}
+h1{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:3.5em;
+	margin:0 auto;
+	text-align:center;
+}
+h2{
+	text-align:center;
+	font-size:3em;
+	margin:0 auto;
+	width:90%;
+	margin-top:.75em;
+	margin-bottom:.25em;
+	font-family: 'Arvo', serif;
+}
+h3{
+	font-family: 'Arvo', serif;
+	font-size:2em;
+	margin:0 auto;
+	text-align:center;
+
+}
+p{
+	font-size:2em;
+	font-family: 'Lora', serif;
+	margin:0 auto;
+	padding:.5em 0;
+}
+
+div.block{
+	margin:0 auto;
+	padding:.5em;
+	width:95%;
+	padding-bottom: 1.5em;
+}
+#content{
+	padding-bottom:5em;
+	padding-top:2em;
+}
+
+
+img{
+	width:95%;	
+	margin:0 2.5%;
+	display:block;
+	border-radius:15px;
+	margin-top:2em;
+}
+img.profile{
+	max-width: 500px;
+	max-height:333px;
+	margin:0 auto;
+}
+
+#logo{
+	width:50%;
+	margin:0 auto;
+	border-radius: 0;
+}
+
+strong{
+	font-weight:bold;
+	color:#770287;
+}
+footer{
+		width:50%;
+		padding-left:3%;
+		
+}
+
+@media screen and (min-width : 480px){
+
+	#logo{
+		width:65%;
+	}
+	
+	div#page{
+		width:95%;
+		margin: 0 auto;
+	}	
+	img{
+		width:99%;
+		margin:0 auto;
+		margin-bottom: .75em;
+
+	}
+
+}
+@media screen and (min-width : 721px){
+	
+	div#page{
+		width:90%;
+		margin: 0 auto;
+	}	
+	img{
+		width:40%;
+		margin-right:1.5em;
+	}
+	p{
+		font-size:1.5em;
+	}
+
+
+}
+
+@media screen and (min-width : 1080px){
+
+	#logo{
+		width:50%;
+	}
+	
+	main{
+		padding-top:.5em;
+	}
+	a h1{
+		font-size:2em;
+	}
+	h1{
+		font-size:2em;
+	}
+	h2{
+		font-size: 1.75em;
+	}
+	h3{
+		font-size:1.5em;
+	}
+	li a{
+		font-size:1.25em;
+	}
+	p{
+		font-size:1.5em;
+	}
+	img{
+		width:30%;
+	}
+	
+}
+
+/* ICON FONTS*/
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?uuf2kq');
+	src:url('fonts/icomoon.eot?#iefixuuf2kq') format('embedded-opentype'),
+		url('fonts/icomoon.woff?uuf2kq') format('woff'),
+		url('fonts/icomoon.ttf?uuf2kq') format('truetype'),
+		url('fonts/icomoon.svg?uuf2kq#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	color:#770287;
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mobile:before {
+	content: "\e600";
+}
+.icon-lab:before {
+	content: "\e601";
+}
+.icon-code:before {
+	content: "\e602";
+}

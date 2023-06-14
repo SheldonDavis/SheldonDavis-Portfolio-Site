@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<title>Anyone's Party | Custom Greeting</title>
+</head>
+
+<body>
+
+<header class="clearfix">
+<div class="logo">
+	<a href="page1.html"><img class="logo" src="img/logofinal.png" alt="Logo"></a>
+</div>	
+    <nav>
+		<ul class="clearfix">
+	    <li><a href="catagory.html">Dessert Category</a></li>
+	    <li><a href="flavor.html">Flavor</a></li>
+	    <li><a href="icing.html">Icing</a></li>
+	    <li><a href="message.html">Custom Message</a></li>
+		</ul>
+	</nav>
+</header>
+
+<main>
+<div class="head">
+	<h2>Custom Message</h2>
+	<p>Pick one of the Preset greetings or choose "other" and write your own.</p>
+</div>
+
+<h3>Preset Greetings</h3>
+<form action="last.html" method="post">
+	<select name="occation">   
+		<option value="-">-</option>
+    	<option value="other">Other - $5</option>
+    	<option value="grad">Graduation - $2</option>
+        <option value="birth">Birthday - $2</option>
+        <option value="wedding">Wedding - $2</option>        
+	</select>
+    <div id="textblock">
+    <h3>Write your custom greeting for the top of your dessert</h3>
+    <textarea name="textblock" disabled rows="3" cols="20" placeholder="Write here"></textarea>
+    </div>
+</form>
+
+<div class="forms clearfix">
+	<form action="last.html" method="post">
+    	<input type="submit" value="Done">
+	</form>
+</div>
+
+
+</main>
+<aside class="cart clearfix">
+    <h2>Cart</h2>
+    
+    <div class="fix">
+	    <h4>Catagory</h4>
+	    <p id="cat_name">-</p>
+	    <p id="cat_price">$</p>
+	    <h5 id="cat_clear">Clear</h5>
+    </div>
+ 
+ 	<div class="fix">
+	    <h4>Flavor</h4>
+	    <p id="flavor_name">-</p>
+	    <p id="flavor_price">$</p>
+	    <h5 id="flavor_clear">Clear</h5>
+    </div>
+
+    <div class="fix">
+	    <h4>Icing</h4>
+	    <p id="icing_name">-</p>
+	    <p id="icing_price">$</p>
+		<h5 id="icing_clear">Clear</h5>
+	</div>
+
+    <div class="fix">
+	    <h4>Message</h4>
+	    <p id="message">-</p>
+	    <p id="message_price">$</p>
+	   	<h5 id="message_clear">Clear</h5>
+	</div>
+    
+    <p>Total: $<div id="cart_total">0</div></p>
+</aside>
+
+
+<footer class="clearfix">
+
+<h6 class="a1">&copy; SheldonDavis</h6>
+<h6 class="a2"><a href="http://www.sheldondavis.net">Back to Sheldon Davis Portfolio</a><h6>
+
+</footer>
+<script src="js/java.js"></script>
+<script>
+if(sessionStorage.messName){
+		document.forms[0].textblock.value = sessionStorage.messName;
+		document.getElementById("textblock").style.opacity=1;
+		document.forms[0].textblock.removeAttribute("disabled");
+		document.getElementsByTagName("option")[1].setAttribute("selected","selected");
+	}
+
+
+	document.forms[0].occation.onchange=function(){
+		if(document.forms[0].occation.value=="other"){
+			document.getElementById("textblock").style.opacity=1;
+			document.forms[0].textblock.removeAttribute("disabled");
+			choseCustom();
+		}else{	document.getElementById("textblock").style.opacity=.2;
+				document.forms[0].textblock.setAttribute("disabled","disabled");		
+		}
+		if(document.forms[0].occation.value=="grad"){
+			choseGrad();
+		}else if(document.forms[0].occation.value=="birth"){
+			choseBirth();
+		}else if(document.forms[0].occation.value=="wedding"){
+			choseWedd();
+		}
+		
+	}
+	document.forms[0].textblock.onblur = function(){
+		choseCustom();
+	}
+		document.getElementById('cat_clear').onclick = function(){ del(this); }
+	document.getElementById('flavor_clear').onclick = function(){ del(this); }
+	document.getElementById('icing_clear').onclick = function(){ del(this); }
+	document.getElementById('message_clear').onclick = function(){ del(this); }
+
+
+
+</script>
+</body>
+</html>
