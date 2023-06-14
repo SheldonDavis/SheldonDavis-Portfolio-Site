@@ -2,10 +2,34 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 	//DOM has loaded
 	window.CurrentPage = '#ABT';
+	pushNavTop()
 
 });
- 
 
+window.addEventListener('resize', function() {
+	//console.log(pageCanScroll())
+}, true);
+
+ function pageCanScroll(){
+	let h = window.innerHeight
+	let bh = document.querySelector('body').offsetHeight 
+	return h>=bh	
+ }
+function pushNavTop(){
+	//select the nav to make edit to it's class
+	let nav = document.querySelector('nav')
+	//get window size to stop function if using desktop nav
+	let w = window.innerWidth
+	//stop and return
+	if (!(w>=1280)){return}	
+	if(pageCanScroll()){
+		//page can scroll so push the nav to the top
+		nav.classList.add('stickTop')
+	}else{
+		//page cannot scroll so let the nav sit vertically centered.
+		nav.classList.remove('stickTop')
+	}
+}
 //function to close or open navigation
 function NAV(){
 	//select nav element
