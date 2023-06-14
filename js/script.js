@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 	//DOM has loaded
 	window.CurrentPage = '#ABT';
+
 });
  
 
@@ -51,15 +52,18 @@ function colorToggle(){
 	//add or remove lightMode class
 	body.classList.toggle('light')
 }
-function newPage(pageName){
+function newPage(pageName,e){
 	let newPageName = pageName;
 	let selNewPage = document.querySelector(newPageName)
 	let selCurrPage = document.querySelector(CurrentPage)
-
+	let clckd = e.srcElement
+	let currentPageLink = document.querySelector('.CurPage')
 	if(newPageName === CurrentPage){
 		//open/close NAV
 		NAV();
 	}else{
+		currentPageLink.classList.remove('CurPage')
+		clckd.classList.add('CurPage')
 		//open/close nav
 		NAV();
 		//begin animation timeouts
