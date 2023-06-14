@@ -23,7 +23,7 @@ body {
   color: #eee;
   transition: background-color 0.25s ease-out;
 }
-h1, p {
+h1,h3,p {
   font-family: "Fjord One", serif;
 }
 body.light {
@@ -98,7 +98,7 @@ nav.opaque {
   opacity: 0;
 }
 nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -124,12 +124,13 @@ nav ul li {
   display: block;
 }
 nav ul li p {
-  display: block;
+  display: inline-block;
   color: #eee;
   font-size: 1.33em;
   line-height: 1.7em;
   padding-bottom: 10px;
   cursor: pointer;
+  transition:border-bottom ease-out 0.25s;
 }
 .light nav ul li p {
   color: #18090b;
@@ -274,6 +275,17 @@ nav.closed ul {
 .light .PageContent p {
   color: #18090b;
 }
+
+
+.PageContent h3 {
+  font-size: 1.4em;
+  line-height: 1.75em;
+  padding-bottom: 1em;
+  color: #eee;
+  transition: color ease-out 0.25s;
+}
+.light .PageContent h3 {color: #18090b;}
+
 .PageContent p b {
   font-weight: 900;
   letter-spacing: 1.25px;
@@ -327,7 +339,7 @@ ul.TheBullets {
 .ProjectLogo img {
   display: block;
   max-width: 100%;
-  max-height: 200px;
+  max-height: 150px;
   margin: 25px 0;
 }
 
@@ -341,13 +353,15 @@ ul.TheBullets {
 
 @media (min-width: 1280px) {
   nav.opaque {
-    opacity: 1;
+      opacity: 1;
   }
+
   nav.hidden {
-    display: flex;
+      display: flex;
   }
   nav {
-    backdrop-filter: none;
+    opacity: 1;
+    display: flex;    
     width: auto;
     height: auto;
     background-color: transparent;
@@ -355,18 +369,36 @@ ul.TheBullets {
     transition:all 0.5s ease-out, background-color 0s ease-out;
   }
   .light nav {
-        background-color: rgba(238, 238, 238, 0.0);
+      background-color: rgba(238, 238, 238, 0.0);
     }
   nav.closed ul {
     left: 0;
     opacity: 1;
   }
   nav ul {
+    left: 0;
+    opacity: 1;
     border-right: 2px solid #eee;
-    padding: 2.3em 1.11em;
-    margin: 50px 0 0 0.5em;
+    padding: 2.3em 1em 2.3em 1.11em;
+    margin: 50px 0 50px 0.5em;
+    display:flex;
+    flex-direction: column;
   }
-    .light nav ul{border-right: 2px solid #18090b;}
+  .light nav ul{
+    border-right: 2px solid #18090b;
+  }
+  nav ul li p{
+    display:inline-block;
+    padding: 0 .45em 2px 0;
+    margin-bottom: 7px;
+    border-bottom: 2px solid transparent;
+  }
+  p.CurPage {
+    border-bottom: 2px solid #eee;
+  }
+  .light p.CurPage {
+    border-bottom: 2px solid #18090b;
+  }
   .menu {
     display: none;
   }
@@ -377,23 +409,24 @@ ul.TheBullets {
     flex-wrap: wrap;
   }
   .PageContent {
-    margin: 50px 1.11em 0;
+    margin: 50px 1em ;
   }
+  .Page{backdrop-filter: blur(7px);}
 }
 
-@media (min-height: 400px) and (min-width: 1280px) {
+@media (min-height: 600px) and (min-width: 1280px) {
   body {
     align-items: center;
   }
   .PageContent {
-    margin-top: 75px;
+    margin: 75px 1em;
   }
 }
 
 
 @media (min-width: 1440px) {
     .PageContent {
-        margin: 50px 3.5em 0;
+        margin: 50px 3.5em;
     }
       
     nav ul {
