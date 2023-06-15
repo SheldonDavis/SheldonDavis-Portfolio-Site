@@ -245,6 +245,7 @@ nav.closed ul {
   align-items: center;
   overflow-y: auto;
   transition: opacity ease-out 0.3s, display ease-out 0.3s;
+  min-width:55%;
 }
 .Page.active {
   display: flex;
