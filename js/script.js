@@ -2,45 +2,54 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 	//DOM has loaded
 	window.CurrentPage = '#ABT';
-	pushNavTop()
-
+	pushNavTop();
 });
 
 window.addEventListener('resize', function() {
-	//console.log(pageCanScroll())
+	pushNavTop();
 }, true);
 
  function pageCanScroll(){
-	let h = window.innerHeight
+	let wh = window.innerHeight
 	let bh = document.querySelector('body').offsetHeight 
-	return h>=bh	
+	// console.log(`wh=${wh}`)
+	// console.log(`bh=${bh}`)
+	return wh>=bh	
  }
 function pushNavTop(){
-	//select the nav to make edit to it's class
-	let nav = document.querySelector('nav')
-	//get window size to stop function if using desktop nav
-	let w = window.innerWidth
-	//stop and return
-	if (!(w>=1280)){return}	
-	if(pageCanScroll()){
-		//page can scroll so push the nav to the top
-		nav.classList.add('stickTop')
-	}else{
-		//page cannot scroll so let the nav sit vertically centered.
-		nav.classList.remove('stickTop')
+	setTimeout(function(){//settimeout just so transitions on show/hide ".Page" elements has time to run.
+			//select the nav to make edit to it's class
+			let nav = document.querySelector('nav')
+			//get window size to stop function if using desktop nav
+			let w = window.innerWidth
+			//stop and return
+			if (!(w>=1280)){console.log('page too small');return}
+			if(pageCanScroll()){
+				//page can scroll so push the nav to the top
+				// console.log(`page cannot scroll`)
+				nav.classList.remove('stickTop')
+			}else{
+				//page cannot scroll so let the nav sit vertically centered.
+				// console.log(`page can scroll`)
+				nav.classList.add('stickTop')
+			}
+		},625)
 	}
-}
-//function to close or open navigation
+	//function to close or open navigation
 function NAV(){
 	//select nav element
 	let nav = document.querySelector('nav')
 	//select menu button
 	let menu = document.querySelector('.menu')
 
+	//fix nav looking too far down page
+	
+	pushNavTop()
+
 	//get window size to stop function if using desktop nav
 	let w = window.innerWidth
 	//stop and return
-	if(w>1280){return false}
+	if(w>=1280){return false}
 
 	//USE 'classList.TOGGLE' FOR EVERTYTHING 
 	//to make sure states stay in sync	
@@ -69,6 +78,8 @@ function NAV(){
 		//animate nav opacity
 		nav.classList.toggle('opaque');
 	}
+
+	
 }
 function colorToggle(){
 	//select body element

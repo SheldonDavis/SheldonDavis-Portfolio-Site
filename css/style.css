@@ -355,7 +355,6 @@ ul.TheBullets {
   nav.opaque {
       opacity: 1;
   }
-
   nav.hidden {
       display: flex;
   }
@@ -367,10 +366,15 @@ ul.TheBullets {
     background-color: transparent;
     position: relative;
     transition:all 0.5s ease-out, background-color 0s ease-out;
+    
   }
   .light nav {
       background-color: rgba(238, 238, 238, 0.0);
     }
+  nav.stickTop {
+      align-self: flex-start;
+      position: sticky;
+  }
   nav.closed ul {
     left: 0;
     opacity: 1;
