@@ -15,7 +15,7 @@ function NAV(){
 	//get window size to stop function if using desktop nav
 	let w = window.innerWidth
 	//stop and return
-	if(w>=1280){return false}
+	if(w>=768){return false}
 
 	//USE 'classList.TOGGLE' FOR EVERTYTHING 
 	//to make sure states stay in sync	
@@ -63,6 +63,8 @@ function newPage(pageName,e){
 	}else{
 		currentPageLink.classList.remove('CurPage')
 		clckd.classList.add('CurPage')
+		//change current page variable for next reference
+		CurrentPage = newPageName;
 		//open/close nav
 		NAV();
 		//begin animation timeouts
@@ -78,8 +80,6 @@ function newPage(pageName,e){
 					//setup css classes for later transitions
 					selNewPage.classList.add('show');
 					selCurrPage.classList.remove('hide');
-					//change current page variable for next reference
-					CurrentPage = newPageName;
 				}, 75);
 			}, 300);
 		},250);
