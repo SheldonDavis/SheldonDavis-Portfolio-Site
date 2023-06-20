@@ -264,7 +264,6 @@ nav.closed ul {
   font-size: 1.75em;
   line-height: 1.5em;
   padding-bottom: 15px;
-  text-align: center;
 }
 .PageContent p {
   font-size: 1.25em;
@@ -272,6 +271,11 @@ nav.closed ul {
   padding-bottom: 1.5em;
   color: #eee;
   transition: color ease-out 0.25s;
+}
+.ProfileIcon img {
+  display: block;
+  max-height: 200px;
+  border-radius: 100%;
 }
 .light .PageContent p {
   color: #18090b;
@@ -368,14 +372,13 @@ ul.TheBullets {
     position: relative;
     transition:all 0.5s ease-out, background-color 0s ease-out;
     
+      align-self: flex-start;
+      position: sticky;
   }
   .light nav {
       background-color: rgba(238, 238, 238, 0.0);
     }
-  nav.stickTop {
-      align-self: flex-start;
-      position: sticky;
-  }
+  
   nav.closed ul {
     left: 0;
     opacity: 1;
