@@ -2,49 +2,15 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 	//DOM has loaded
 	window.CurrentPage = '#ABT';
-	pushNavTop();
 });
 
-window.addEventListener('resize', function() {
-	pushNavTop();
-}, true);
 
- function pageCanScroll(){
-	let wh = window.innerHeight
-	let bh = document.querySelector('body').offsetHeight 
-	// console.log(`wh=${wh}`)
-	// console.log(`bh=${bh}`)
-	return wh>=bh	
- }
-function pushNavTop(){
-	setTimeout(function(){//settimeout just so transitions on show/hide ".Page" elements has time to run.
-			//select the nav to make edit to it's class
-			let nav = document.querySelector('nav')
-			//get window size to stop function if using desktop nav
-			let w = window.innerWidth
-			//stop and return
-			if (!(w>=1280)){console.log('page too small');return}
-			if(pageCanScroll()){
-				//page can scroll so push the nav to the top
-				// console.log(`page cannot scroll`)
-				nav.classList.remove('stickTop')
-			}else{
-				//page cannot scroll so let the nav sit vertically centered.
-				// console.log(`page can scroll`)
-				nav.classList.add('stickTop')
-			}
-		},625)
-	}
 	//function to close or open navigation
 function NAV(){
 	//select nav element
 	let nav = document.querySelector('nav')
 	//select menu button
 	let menu = document.querySelector('.menu')
-
-	//fix nav looking too far down page
-	
-	pushNavTop()
 
 	//get window size to stop function if using desktop nav
 	let w = window.innerWidth
@@ -78,8 +44,6 @@ function NAV(){
 		//animate nav opacity
 		nav.classList.toggle('opaque');
 	}
-
-	
 }
 function colorToggle(){
 	//select body element
