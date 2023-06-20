@@ -354,9 +354,14 @@ ul.TheBullets {
   .PageContent h1 {
     text-align: left;
   }
-}
 
-@media (min-width: 1280px) {
+  .PageContent {
+    margin: 125px 1.25em 55px;
+  }
+
+  .menu {
+    display: none;
+  }
   nav.opaque {
       opacity: 1;
   }
@@ -365,20 +370,71 @@ ul.TheBullets {
   }
   nav {
     opacity: 1;
-    display: flex;    
+    position: fixed;
+    background-color: rgba(24, 9, 11, 0);
+    height: auto;
+    backdrop-filter: none;
+  }
+  nav.closed ul {
+      left: 0;
+      opacity: 1;
+  }
+  nav ul {
+    padding: 1em 1.25em 0;
+    margin: 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75em 1.5em;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: rgba(24, 9, 11, 0.35);
+    backdrop-filter: blur(7px);      
+  }
+  .light nav ul {
+    background-color: rgba(238, 238, 238, 0.35);    
+  }
+  nav ul li p {
+      padding-bottom: 0;
+  }
+  nav ul li p a {
+      font-size: 1em;
+      line-height: 1.5em;
+  }
+  nav ul li p{
+    display:inline-block;
+    padding: 0 .3em 2px 0.3em;
+    margin-bottom: 7px;
+    border-bottom: 2px solid transparent;
+    line-height: 1.5em;
+  }
+  p.CurPage {
+    border-bottom: 2px solid #eee;
+  }
+  .light p.CurPage {
+    border-bottom: 2px solid #18090b;
+  }
+}
+
+@media (min-width: 1280px) {
+  
+  nav {
+    opacity: 1;
+    display: flex;
     width: auto;
     height: auto;
     background-color: transparent;
     position: relative;
     transition:all 0.5s ease-out, background-color 0s ease-out;
-    
+
       align-self: flex-start;
       position: sticky;
   }
   .light nav {
       background-color: rgba(238, 238, 238, 0.0);
     }
-  
+
   nav.closed ul {
     left: 0;
     opacity: 1;
@@ -387,26 +443,24 @@ ul.TheBullets {
     left: 0;
     opacity: 1;
     border-right: 2px solid #eee;
-    padding: 2.3em 1em 2.3em 1.11em;
+    padding: 2.3em .75em 2.3em .75em;
     margin: 50px 0 50px 0.5em;
     display:flex;
     flex-direction: column;
+    gap:0 0;
+    position: relative;
+    align-items: flex-end;
   }
   .light nav ul{
     border-right: 2px solid #18090b;
   }
   nav ul li p{
     display:inline-block;
-    padding: 0 .45em 2px 0;
+    padding: 0 .45em 2px .45em;
     margin-bottom: 7px;
-    border-bottom: 2px solid transparent;
+    line-height: 1.7em;
   }
-  p.CurPage {
-    border-bottom: 2px solid #eee;
-  }
-  .light p.CurPage {
-    border-bottom: 2px solid #18090b;
-  }
+  
   .menu {
     display: none;
   }
@@ -436,8 +490,8 @@ ul.TheBullets {
     .PageContent {
         margin: 50px 3.5em;
     }
-      
+
     nav ul {
-        padding: 2.3em 3.5em;
+        padding: 2.3em 3.25em;
     }
 }
