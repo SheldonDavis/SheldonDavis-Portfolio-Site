@@ -25,6 +25,7 @@ body {
 }
 h1,h3,p {
   font-family: "Fjord One", serif;
+  text-wrap:balance;
 }
 body.light {
   background-color: #eee;
@@ -126,7 +127,7 @@ nav ul li {
 nav ul li p {
   display: inline-block;
   color: #eee;
-  font-size: 1.33em;
+  font-size: 1.4em;
   line-height: 1.7em;
   padding-bottom: 10px;
   cursor: pointer;
@@ -261,12 +262,13 @@ nav.closed ul {
   margin: 75px 1.25em 55px;
 }
 .PageContent h1 {
-  font-size: 1.75em;
-  line-height: 1.5em;
+  font-size: 2.25em;
+  line-height: 1.2em;
   padding-bottom: 15px;
+  letter-spacing: 2px;
 }
 .PageContent p {
-  font-size: 1.25em;
+  font-size: 1.2em;
   line-height: 1.5em;
   padding-bottom: 1.5em;
   color: #eee;
@@ -283,18 +285,19 @@ nav.closed ul {
 
 
 .PageContent h3 {
-  font-size: 1.4em;
-  line-height: 1.75em;
+  font-size: 1.5em;
+  line-height: 1.4em;
   padding-bottom: 1em;
   color: #eee;
   transition: color ease-out 0.25s;
+  letter-spacing: 1px;
 }
 .light .PageContent h3 {color: #18090b;}
 
 .PageContent p b {
   font-weight: 900;
-  letter-spacing: 1.25px;
-  font-size: 1.05em;
+  letter-spacing: 1.5px;
+  font-size: 1.1em;
 }
 .PageContent p.beforeBullets {
   padding-bottom: 5px;
@@ -408,6 +411,7 @@ ul.TheBullets {
     margin-bottom: 7px;
     border-bottom: 2px solid transparent;
     line-height: 1.5em;
+    font-size:1.3em;
   }
   p.CurPage {
     border-bottom: 2px solid #eee;
