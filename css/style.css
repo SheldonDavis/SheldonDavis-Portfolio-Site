@@ -258,6 +258,7 @@ nav.closed ul {
   opacity: 0;
 }
 .PageContent {
+  width:100%;
   max-width: 1000px;
   margin: 75px 1.25em 55px;
 }
