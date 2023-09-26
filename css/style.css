@@ -396,6 +396,7 @@ ul.TheBullets {
     top: 0;
     background-color: rgba(24, 9, 11, 0.35);
     backdrop-filter: blur(7px);      
+    width:100%;
   }
   .light nav ul {
     background-color: rgba(238, 238, 238, 0.35);    
@@ -448,7 +449,8 @@ ul.TheBullets {
   nav ul {
     left: 0;
     opacity: 1;
-    border-right: 2px solid #eee;
+    border-right: 2px solid #eee;    
+    background-color: rgba(24, 9, 11, 0);
     padding: 2.3em .75em 2.3em .75em;
     margin: 50px 0 50px 0.5em;
     display:flex;
@@ -459,6 +461,7 @@ ul.TheBullets {
   }
   .light nav ul{
     border-right: 2px solid #18090b;
+    background-color: rgba(24, 9, 11, 0);
   }
   nav ul li p{
     display:inline-block;
