@@ -247,6 +247,7 @@ nav.closed ul {
   overflow-y: auto;
   transition: opacity ease-out 0.3s, display ease-out 0.3s;
   min-width:55%;
+  max-width:1000px
 }
 .Page.active {
   display: flex;
@@ -259,7 +260,6 @@ nav.closed ul {
 }
 .PageContent {
   width:100%;
-  max-width: 1000px;
   margin: 75px 1.25em 55px;
 }
 .PageContent h1 {
