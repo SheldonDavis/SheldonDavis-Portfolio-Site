@@ -16,6 +16,28 @@ font-family: 'Dosis', sans-serif;
 }
 /*end reset*/
 
+/*tester styles for space floaters*/
+ol.space{
+  list-style-type: none;
+  list-style-position: inside;
+  position:relative;
+  overflow:hidden;
+}
+ol.space li.floater{
+  position:absolute;
+
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.25,0,.15,1);
+  transition-duration: 5s;
+
+  background-color: red;
+  height:50px;
+  width:50px;
+  
+}
+/*End tester styles for space floaters*/
+
+
 /*begin main styles*/
 body {
   font-family: "Dosis", Arial, sans-serif;
@@ -351,6 +373,10 @@ ul.TheBullets {
   max-width: 100%;
   max-height: 150px;
   margin: 25px 0;
+  padding: 2px;
+}
+.ProjectLogo.needBG img {
+  background-color: #eee;
 }
 
 /*BEGIN MEDIA QUERIES*/
