@@ -3,12 +3,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	//DOM has loaded
 	window.CurrentPage = '#ABT';
 	
-	
 	updateSpaceVariables()
 	positionFloaters()
 	window.floaterInterval = setInterval(positionFloaters,1)
 	clearInterval(floaterInterval)
-
+	
+	//turn on light mode if user has perviously set site to light mode
+	if(getCookie('lights')==='on'){document.querySelector('body').classList.add('light')}
+	
+	window.params = new URLSearchParams(window.location.search)
+	if(params.get('l')){
+		newPage(params.get('l'))
+	}
+	
 
 });
 
@@ -16,7 +23,6 @@ window.addEventListener("resize", (event) => {
 	//console.log('resized')
 	updateSpaceVariables()
 });
-
 
 //function to close or open navigation
 function NAV(){
@@ -66,16 +72,32 @@ function NAV(){
 function colorToggle(){
 	//select body element
 	let body = document.querySelector('body')
-	//add or remove lightMode class
-	body.classList.toggle('light')
+	let mode = getCookie('lights')	
+	//add or remove lightMode class and adjust cookie for next reload of page
+	if(mode==='on'){//turn the lights off
+		setCookie('lights','off')
+		body.classList.remove('light')
+	}else{//turn the lights on
+		setCookie('lights','on')
+		body.classList.add('light')
+	}
 }
 
 //animate page content to view selected page item.
 function newPage(pageName,e){
-	let newPageName = pageName;
+	if(params.get('l') !== pageName){
+		params.set('l',pageName)	
+		let newurl = window.location.origin + window.location.pathname + '?' + params.toString();
+		window.history.pushState({path: newurl}, '', newurl);
+
+	}else if(newPage===''){
+		return false
+	}
+	let newPageName = '#'+pageName;
+	console.log(newPageName)
 	let selNewPage = document.querySelector(newPageName)
 	let selCurrPage = document.querySelector(CurrentPage)
-	let clckd = e.srcElement
+	let clckd = document.querySelector(newPageName+'_link')//e.srcElement
 	let currentPageLink = document.querySelector('.CurPage')
 	if(newPageName === CurrentPage){
 		//open/close NAV
@@ -147,13 +169,39 @@ function positionFloaters(){
 	}
 }
 
-
+//create a random number within an area based on horizontral space
 function randomX(){
 	//get a random X coordinate
 	return Math.floor(Math.random()*(spaceWidth-100))
 }
 
+//create a random number within an area based on vertical space
 function randomY(){
 	//get a random Y coordinate
 	return Math.floor(Math.random()*(spaceHeight-100))
+}
+
+//set a cookie, defauly to 30 day expiration
+function setCookie(name, value, time=30){
+	const d = new Date()
+	d.setTime(d.getTime()+time*24*60*60*1000)
+	let duration  = "expires="+d.toUTCString()
+
+	document.cookie = name + '=' + value + ';' + duration + ';'
+}
+
+//retrieve a cookie by its name
+function getCookie(cookieName){
+	let name = cookieName+'='
+	let ca = document.cookie.split(';')
+	for(let i = 0; i<ca.length;i++){
+		let c = ca[i]
+		while(c.charAt(0)===' '){
+			c=c.substring(1)
+		}
+		if(c.indexOf(name)===0){
+			return c.substring(name.length, c.length)
+		}
+	}
+	return false
 }
