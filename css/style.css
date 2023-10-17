@@ -298,6 +298,13 @@ nav.closed ul {
   transition: color ease-out 0.25s;
   text-wrap: wrap;
 }
+.PageContent p.notes {
+  font-style: italic;
+  text-decoration: underline;
+  font-size: 1em;
+  padding-bottom: 0;
+  margin-top: 1em;
+}
 .ProfileIcon img {
   display: block;
   max-height: 200px;
