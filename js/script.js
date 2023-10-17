@@ -1,28 +1,29 @@
 // JavaScript Document
 document.addEventListener("DOMContentLoaded", function(event) { 
 	//DOM has loaded
-	window.CurrentPage = '#ABT';
-	
-	updateSpaceVariables()
-	positionFloaters()
-	window.floaterInterval = setInterval(positionFloaters,1)
-	clearInterval(floaterInterval)
+	window.CurrentPage = 'ABT';
+
+	// updateSpaceVariables()
+	// positionFloaters()
+	// window.floaterInterval = setInterval(positionFloaters,1)
+	// clearInterval(floaterInterval)
 	
 	//turn on light mode if user has perviously set site to light mode
 	if(getCookie('lights')==='on'){document.querySelector('body').classList.add('light')}
 	
 	window.params = new URLSearchParams(window.location.search)
 	if(params.get('l')){
-		newPage(params.get('l'))
+		CurrentPage = params.get('l');
 	}
+	newPage(CurrentPage,true)
 	
 
 });
 
-window.addEventListener("resize", (event) => {
-	//console.log('resized')
-	updateSpaceVariables()
-});
+// window.addEventListener("resize", (event) => {
+// 	//console.log('resized')
+// 	updateSpaceVariables()
+// });
 
 //function to close or open navigation
 function NAV(){
@@ -84,7 +85,7 @@ function colorToggle(){
 }
 
 //animate page content to view selected page item.
-function newPage(pageName,e){
+function newPage(pageName,onload = false){
 	if(params.get('l') !== pageName){
 		params.set('l',pageName)	
 		let newurl = window.location.origin + window.location.pathname + '?' + params.toString();
@@ -93,12 +94,19 @@ function newPage(pageName,e){
 	}else if(newPage===''){
 		return false
 	}
-	let newPageName = '#'+pageName;
-	console.log(newPageName)
-	let selNewPage = document.querySelector(newPageName)
-	let selCurrPage = document.querySelector(CurrentPage)
-	let clckd = document.querySelector(newPageName+'_link')//e.srcElement
+	let newPageName = pageName;
+	let selNewPage = document.querySelector('#'+newPageName)
+	let selCurrPage = document.querySelector('#'+CurrentPage)
+	let clckd = document.querySelector('#'+newPageName+'_link')//e.srcElement
 	let currentPageLink = document.querySelector('.CurPage')
+
+	if(onload){
+		clckd.classList.add('CurPage');
+		selNewPage.classList.add('active');
+		selNewPage.classList.add('show');
+		return;
+	}
+
 	if(newPageName === CurrentPage){
 		//open/close NAV
 		NAV();
@@ -122,13 +130,13 @@ function newPage(pageName,e){
 					//setup css classes for later transitions
 					selNewPage.classList.add('show');
 					selCurrPage.classList.remove('hide');
-					clearInterval(floaterInterval)
-					if(newPageName==='#PRO'){
-						updateSpaceVariables()
-						positionFloaters()
-						floaterInterval = setInterval(positionFloaters,5000)
-						positionFloaters()
-					}
+					// clearInterval(floaterInterval)
+					// if(newPageName==='#PRO'){
+					// 	updateSpaceVariables()
+					// 	positionFloaters()
+					// 	floaterInterval = setInterval(positionFloaters,5000)
+					// 	positionFloaters()
+					// }
 				}, 75);
 			}, 300);
 		},250);
@@ -137,49 +145,49 @@ function newPage(pageName,e){
 	return false;
 }
 
-//random movement function?
-function updateSpaceVariables(){
-	let w = window.innerWidth
-	//stop and return
-	if(w<=768){
-		return false
-	}
-	titleHeight = document.querySelector('.Page.active .PageContent h1').clientHeight
-	spaceHeight = window.innerHeight-100-titleHeight
-	spaceWidth = document.querySelector('.Page.active .PageContent').clientWidth
+// //random movement function?
+// function updateSpaceVariables(){
+// 	let w = window.innerWidth
+// 	//stop and return
+// 	if(w<=768){
+// 		return false
+// 	}
+// 	titleHeight = document.querySelector('.Page.active .PageContent h1').clientHeight
+// 	spaceHeight = window.innerHeight-100-titleHeight
+// 	spaceWidth = document.querySelector('.Page.active .PageContent').clientWidth
 	
-	document.querySelector('.space').style.width=spaceWidth+'px'
-	document.querySelector('.space').style.height=spaceHeight+'px'
-}
+// 	document.querySelector('.space').style.width=spaceWidth+'px'
+// 	document.querySelector('.space').style.height=spaceHeight+'px'
+// }
 
-//assign floaters random Positions
-function positionFloaters(){
-	let w = window.innerWidth
-	//stop and return
-	if(w<=768){
-		return false
-	}
-	let floaters = document.querySelectorAll('.active .PageContent .space .floater')
-	for (const floater of floaters){
-		console.log(floater.innerText)
-		let x = randomX()
-		let y = randomY()
-		floater.style.left = (x)+'px'
-		floater.style.top = (y)+'px'
-	}
-}
+// //assign floaters random Positions
+// function positionFloaters(){
+// 	let w = window.innerWidth
+// 	//stop and return
+// 	if(w<=768){
+// 		return false
+// 	}
+// 	let floaters = document.querySelectorAll('.active .PageContent .space .floater')
+// 	for (const floater of floaters){
+// 		console.log(floater.innerText)
+// 		let x = randomX()
+// 		let y = randomY()
+// 		floater.style.left = (x)+'px'
+// 		floater.style.top = (y)+'px'
+// 	}
+// }
 
-//create a random number within an area based on horizontral space
-function randomX(){
-	//get a random X coordinate
-	return Math.floor(Math.random()*(spaceWidth-100))
-}
+// //create a random number within an area based on horizontral space
+// function randomX(){
+// 	//get a random X coordinate
+// 	return Math.floor(Math.random()*(spaceWidth-100))
+// }
 
-//create a random number within an area based on vertical space
-function randomY(){
-	//get a random Y coordinate
-	return Math.floor(Math.random()*(spaceHeight-100))
-}
+// //create a random number within an area based on vertical space
+// function randomY(){
+// 	//get a random Y coordinate
+// 	return Math.floor(Math.random()*(spaceHeight-100))
+// }
 
 //set a cookie, defauly to 30 day expiration
 function setCookie(name, value, time=30){
