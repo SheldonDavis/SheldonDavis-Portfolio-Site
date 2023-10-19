@@ -1,6 +1,6 @@
-// JavaScript Document
+//* JavaScript Document
 document.addEventListener("DOMContentLoaded", function(event) { 
-	//DOM has loaded
+	//*DOM has loaded
 	window.CurrentPage = 'ABT';
 
 	// updateSpaceVariables()
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	// window.floaterInterval = setInterval(positionFloaters,1)
 	// clearInterval(floaterInterval)
 	
-	//turn on light mode if user has perviously set site to light mode
+	//*turn on light mode if user has perviously set site to light mode
 	if(getCookie('lights')==='on'){document.querySelector('body').classList.add('light')}
 	
 	window.params = new URLSearchParams(window.location.search)
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // 	updateSpaceVariables()
 // });
 
-//function to close or open navigation
+//*function to close or open navigation
 function NAV(){
 	//select nav element
 	let nav = document.querySelector('nav')
@@ -69,7 +69,7 @@ function NAV(){
 	}
 }
 
-//toggle light-dark mode
+//*toggle light-dark mode
 function colorToggle(){
 	//select body element
 	let body = document.querySelector('body')
@@ -84,7 +84,7 @@ function colorToggle(){
 	}
 }
 
-//animate page content to view selected page item.
+//*animate page content to view selected page item.
 function newPage(pageName,onload = false){
 	if(params.get('l') !== pageName){
 		params.set('l',pageName)	
@@ -108,29 +108,29 @@ function newPage(pageName,onload = false){
 	}
 
 	if(newPageName === CurrentPage){
-		//open/close NAV
+		//*open/close NAV
 		NAV();
 	}else{
 		currentPageLink.classList.remove('CurPage')
 		clckd.classList.add('CurPage')
-		//change current page variable for next reference
+		//*change current page variable for next reference
 		CurrentPage = newPageName;
-		//open/close nav
+		//*open/close nav
 		NAV();
-		//begin animation timeouts
+		//*begin animation timeouts
 		setTimeout(function(){
-			//adjust which is hidden and shown
+			//*adjust which is hidden and shown
 			selCurrPage.classList.remove('show');
 			selCurrPage.classList.add('hide');
 			setTimeout(function(){
-				//set active panel
+				//*set active panel
 				selCurrPage.classList.remove('active');
 				selNewPage.classList.add('active');
 				setTimeout(function(){
-					//setup css classes for later transitions
+					//*setup css classes for later transitions
 					selNewPage.classList.add('show');
 					selCurrPage.classList.remove('hide');
-					// clearInterval(floaterInterval)
+					//clearInterval(floaterInterval)
 					// if(newPageName==='#PRO'){
 					// 	updateSpaceVariables()
 					// 	positionFloaters()
@@ -189,7 +189,7 @@ function newPage(pageName,onload = false){
 // 	return Math.floor(Math.random()*(spaceHeight-100))
 // }
 
-//set a cookie, defauly to 30 day expiration
+//*set a cookie, defauly to 30 day expiration
 function setCookie(name, value, time=30){
 	const d = new Date()
 	d.setTime(d.getTime()+time*24*60*60*1000)
@@ -198,7 +198,7 @@ function setCookie(name, value, time=30){
 	document.cookie = name + '=' + value + ';' + duration + ';'
 }
 
-//retrieve a cookie by its name
+//*retrieve a cookie by its name
 function getCookie(cookieName){
 	let name = cookieName+'='
 	let ca = document.cookie.split(';')
