@@ -1,12 +1,12 @@
-//* JavaScript Document
+//* JS scripting for sheldondavis.onrender.com
+//* author: Sheldon Davis
 document.addEventListener("DOMContentLoaded", function(event) { 
 	//*DOM has loaded
 	window.CurrentPage = 'ABT';
 
-	// updateSpaceVariables()
-	// positionFloaters()
-	// window.floaterInterval = setInterval(positionFloaters,1)
-	// clearInterval(floaterInterval)
+	//* stop the anchor links from reloading page on click
+	PreventDefaultNav()
+
 	
 	//*turn on light mode if user has perviously set site to light mode
 	if(getCookie('lights')==='on'){document.querySelector('body').classList.add('light')}
@@ -17,13 +17,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 	newPage(CurrentPage,true)
 	
-
 });
 
-// window.addEventListener("resize", (event) => {
-// 	//console.log('resized')
-// 	updateSpaceVariables()
-// });
+//* function to prevent the default event handling of the anchors within the navigation section
+function PreventDefaultNav(){
+	//* create array of all internally navigating links
+	let anchorList = document.querySelectorAll('nav a.internalLink')
+	//* loop through and add event listeners to each link
+	anchorList.forEach(anchor=>{
+		anchor.addEventListener("click", function(event) { 
+			event.preventDefault();
+			
+		})
+	})
+}
 
 //*function to close or open navigation
 function NAV(){
@@ -130,13 +137,7 @@ function newPage(pageName,onload = false){
 					//*setup css classes for later transitions
 					selNewPage.classList.add('show');
 					selCurrPage.classList.remove('hide');
-					//clearInterval(floaterInterval)
-					// if(newPageName==='#PRO'){
-					// 	updateSpaceVariables()
-					// 	positionFloaters()
-					// 	floaterInterval = setInterval(positionFloaters,5000)
-					// 	positionFloaters()
-					// }
+					
 				}, 75);
 			}, 300);
 		},250);
@@ -145,51 +146,7 @@ function newPage(pageName,onload = false){
 	return false;
 }
 
-// //random movement function?
-// function updateSpaceVariables(){
-// 	let w = window.innerWidth
-// 	//stop and return
-// 	if(w<=768){
-// 		return false
-// 	}
-// 	titleHeight = document.querySelector('.Page.active .PageContent h1').clientHeight
-// 	spaceHeight = window.innerHeight-100-titleHeight
-// 	spaceWidth = document.querySelector('.Page.active .PageContent').clientWidth
-	
-// 	document.querySelector('.space').style.width=spaceWidth+'px'
-// 	document.querySelector('.space').style.height=spaceHeight+'px'
-// }
-
-// //assign floaters random Positions
-// function positionFloaters(){
-// 	let w = window.innerWidth
-// 	//stop and return
-// 	if(w<=768){
-// 		return false
-// 	}
-// 	let floaters = document.querySelectorAll('.active .PageContent .space .floater')
-// 	for (const floater of floaters){
-// 		console.log(floater.innerText)
-// 		let x = randomX()
-// 		let y = randomY()
-// 		floater.style.left = (x)+'px'
-// 		floater.style.top = (y)+'px'
-// 	}
-// }
-
-// //create a random number within an area based on horizontral space
-// function randomX(){
-// 	//get a random X coordinate
-// 	return Math.floor(Math.random()*(spaceWidth-100))
-// }
-
-// //create a random number within an area based on vertical space
-// function randomY(){
-// 	//get a random Y coordinate
-// 	return Math.floor(Math.random()*(spaceHeight-100))
-// }
-
-//*set a cookie, defauly to 30 day expiration
+//*set a cookie, default to 30 day expiration
 function setCookie(name, value, time=30){
 	const d = new Date()
 	d.setTime(d.getTime()+time*24*60*60*1000)
